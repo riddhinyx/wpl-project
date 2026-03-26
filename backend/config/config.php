@@ -6,13 +6,15 @@ declare(strict_types=1);
  * Prefer environment variables in production.
  */
 
-function env(string $key, ?string $default = null): ?string
-{
-    $value = getenv($key);
-    if ($value === false || $value === '') {
-        return $default;
+if (!function_exists('env')) {
+    function env(string $key, ?string $default = null): ?string
+    {
+        $value = getenv($key);
+        if ($value === false || $value === '') {
+            return $default;
+        }
+        return $value;
     }
-    return $value;
 }
 
 return [

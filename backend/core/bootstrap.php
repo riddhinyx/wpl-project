@@ -102,7 +102,8 @@ ini_set('log_errors', '1');
 
 set_exception_handler(static function (Throwable $e) use ($isProd): void {
     error_log((string) $e);
-    Response::error($isProd ? 'Server error' : 'Server error', 500, 500);
+    $message = $isProd ? 'Server error' : $e->getMessage();
+    Response::error($message, 500, 500);
 });
 
 set_error_handler(static function (int $errno, string $errstr, string $errfile, int $errline) use ($isProd): bool {

@@ -30,7 +30,8 @@
       </div>
       
       <div class="landing-right">
-        <div class="auth-box animate-slide-up stagger-2">
+        <!-- LOGIN FORM -->
+        <div id="login-container" class="auth-box animate-slide-up stagger-2">
           <div style="margin-bottom: var(--spacing-8); text-align: center;">
             <h2 class="headline-md">Welcome Back</h2>
             <p class="body-md">Sign in to access your portal</p>
@@ -59,8 +60,58 @@
             <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
               Login
             </button>
-            <button type="button" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-top: var(--spacing-4); border: none; background-color: var(--surface);">
+            <button type="button" id="goto-signup-btn" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-top: var(--spacing-4); border: none; background-color: var(--surface);">
               Create new account
+            </button>
+          </form>
+        </div>
+
+        <!-- SIGNUP FORM -->
+        <div id="signup-container" class="auth-box animate-slide-up stagger-2" style="display: none;">
+          <div style="margin-bottom: var(--spacing-8); text-align: center;">
+            <h2 class="headline-md">Create Account</h2>
+            <p class="body-md">Join our network to make an impact</p>
+          </div>
+          
+          <form id="signup-form">
+            <div class="form-group">
+              <label class="title-sm">Full Name</label>
+              <input type="text" id="signup_name" class="input-field" placeholder="John Doe" required style="background-color: var(--surface);" />
+            </div>
+
+            <div class="form-group">
+              <label class="title-sm">Email Address</label>
+              <input type="email" id="signup_email" class="input-field" placeholder="name@example.com" required style="background-color: var(--surface);" />
+            </div>
+
+            <div class="form-group">
+              <label class="title-sm">Password (Min 8 characters)</label>
+              <input type="password" id="signup_password" class="input-field" placeholder="••••••••" required minlength="8" style="background-color: var(--surface);" />
+            </div>
+
+            <div class="form-group">
+              <label class="title-sm">Phone Number</label>
+              <input type="tel" id="signup_phone" class="input-field" placeholder="+1 (555) 123-4567" required style="background-color: var(--surface);" />
+            </div>
+
+            <div class="form-group">
+              <label class="title-sm">Address</label>
+              <input type="text" id="signup_address" class="input-field" placeholder="123 Main St, City, State" style="background-color: var(--surface);" />
+            </div>
+
+            <div class="form-group" style="margin-bottom: var(--spacing-6);">
+              <label class="title-sm">Select Your Role</label>
+              <select id="signup_role" class="input-field" style="background-color: var(--surface);" required>
+                <option value="donor">Food Donor</option>
+                <option value="ngo">Volunteer / NGO</option>
+              </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              Create Account
+            </button>
+            <button type="button" id="goto-login-btn" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-top: var(--spacing-4); border: none; background-color: var(--surface);">
+              Back to Login
             </button>
           </form>
         </div>
@@ -118,6 +169,13 @@
             <i class="ph ph-users" style="font-size: 1.25rem;"></i>
             <span class="nav-text">User Management</span>
           </a>
+        </div>
+
+        <!-- Logout Button -->
+        <div style="margin-top: auto; padding: var(--spacing-4); border-top: 1px solid var(--outline-variant);">
+          <button id="logout-btn" class="btn btn-tertiary" style="width: 100%; justify-content: center;">
+            <i class="ph ph-sign-out"></i> Logout
+          </button>
         </div>
       </nav>
 
