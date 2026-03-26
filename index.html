@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CuraSpace | Food Redistribution</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- Landing Page (Login / Sign Up) -->
+    <div id="landing-page" class="landing-container">
+      <div class="landing-left section-image">
+        <div class="landing-content animate-slide-up stagger-1">
+          <div class="brand-icon" style="width: 64px; height: 64px; font-size: 2rem; margin-bottom: var(--spacing-6);">
+            <i class="ph ph-plant"></i>
+          </div>
+          <h1 class="display-lg" style="color: var(--on-primary);">The Curated Table</h1>
+          <p class="body-md" style="color: rgba(255,255,255,0.9); max-width: 400px; font-size: 1.25rem; margin-top: var(--spacing-4);">Connecting surplus food with communities in need. Join our network of donors, volunteers, and NGOs.</p>
+        </div>
+      </div>
+      
+      <div class="landing-right">
+        <div class="auth-box animate-slide-up stagger-2">
+          <div style="margin-bottom: var(--spacing-8); text-align: center;">
+            <h2 class="headline-md">Welcome Back</h2>
+            <p class="body-md">Sign in to access your portal</p>
+          </div>
+          
+          <form id="login-form">
+            <div class="form-group">
+              <label class="title-sm">Email Address</label>
+              <input type="email" class="input-field" placeholder="name@example.com" required style="background-color: var(--surface);" />
+            </div>
+            
+            <div class="form-group">
+              <label class="title-sm">Password</label>
+              <input type="password" class="input-field" placeholder="••••••••" required style="background-color: var(--surface);" />
+            </div>
+            
+            <div class="form-group" style="margin-bottom: var(--spacing-6);">
+              <label class="title-sm">Select Your Role</label>
+              <select class="input-field" style="background-color: var(--surface);" required>
+                <option value="donor">Food Donor</option>
+                <option value="ngo">Volunteer / NGO</option>
+                <option value="admin">Administrator</option>
+              </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              Login
+            </button>
+            <button type="button" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-top: var(--spacing-4); border: none; background-color: var(--surface);">
+              Create new account
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main App Container (Hidden initially) -->
+    <div class="app-container" id="app" style="display: none;">
+      
+      <!-- Sidebar -->
+      <nav class="sidebar" style="overflow-y: auto;">
+        <div class="brand">
+          <div class="brand-icon">
+            <i class="ph ph-plant"></i>
+          </div>
+          <span class="headline-md" style="font-size: 1.5rem;">CuraSpace</span>
+        </div>
+        
+        <div class="nav-menu">
+          <!-- Role: Donor -->
+          <div style="margin-top: var(--spacing-4); margin-bottom: var(--spacing-2);">
+            <span class="label-md" style="font-size: 0.75rem; color: var(--outline-variant); margin-left: var(--spacing-4);">DONOR</span>
+          </div>
+          <a href="#" class="nav-item active">
+            <i class="ph ph-hand-heart" style="font-size: 1.25rem;"></i>
+            <span class="nav-text">Food Donation Portal</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="ph ph-clock-counter-clockwise" style="font-size: 1.25rem;"></i>
+            <span class="nav-text">Donation History</span>
+          </a>
+
+          <!-- Role: Volunteer / NGO -->
+          <div style="margin-top: var(--spacing-6); margin-bottom: var(--spacing-2);">
+            <span class="label-md" style="font-size: 0.75rem; color: var(--outline-variant); margin-left: var(--spacing-4);">VOLUNTEER / NGO</span>
+          </div>
+          <a href="#" class="nav-item">
+            <i class="ph ph-magnifying-glass" style="font-size: 1.25rem;"></i>
+            <span class="nav-text">Available Donations</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="ph ph-truck" style="font-size: 1.25rem;"></i>
+            <span class="nav-text">My Pickups</span>
+          </a>
+
+          <!-- Role: Admin -->
+          <div style="margin-top: var(--spacing-6); margin-bottom: var(--spacing-2);">
+            <span class="label-md" style="font-size: 0.75rem; color: var(--outline-variant); margin-left: var(--spacing-4);">ADMIN</span>
+          </div>
+          <a href="#" class="nav-item">
+            <i class="ph ph-chart-pie-slice" style="font-size: 1.25rem;"></i>
+            <span class="nav-text">Admin Dashboard</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="ph ph-users" style="font-size: 1.25rem;"></i>
+            <span class="nav-text">User Management</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div id="router-view">
+          <!-- Default loaded view will be populated by main.js soon -->
+        </div>
+      </main>
+    </div>
+    
+    <style>
+      .hover-surface:hover {
+        background-color: var(--surface-container-highest) !important;
+      }
+      
+      /* Basic Form Styles to match Curated Table */
+      .form-group {
+        margin-bottom: var(--spacing-6);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-2);
+      }
+      
+      textarea.input-field {
+        resize: vertical;
+        min-height: 100px;
+        border-radius: var(--rounded-lg);
+      }
+      
+      select.input-field {
+        appearance: none;
+        cursor: pointer;
+      }
+      
+      /* Landing Page Styles */
+      .landing-container {
+        display: flex;
+        min-height: 100vh;
+        width: 100vw;
+      }
+      
+      .landing-left {
+        flex: 1;
+        background: linear-gradient(135deg, rgba(39, 28, 52, 0.8), rgba(61, 49, 74, 0.9)), url('https://images.unsplash.com/photo-1593113544335-b223ff77fc5a?q=80&w=2670&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        padding: var(--spacing-12);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--on-primary);
+      }
+      
+      .landing-right {
+        flex: 1;
+        background-color: var(--surface-container-low);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-12);
+      }
+      
+      .auth-box {
+        background-color: var(--surface-container-lowest);
+        padding: var(--spacing-10);
+        border-radius: var(--rounded-xl);
+        width: 100%;
+        max-width: 480px;
+        box-shadow: 0 24px 40px rgba(var(--shadow-color), 0.05);
+      }
+      
+      @media (max-width: 768px) {
+        .landing-container {
+          flex-direction: column;
+        }
+        .landing-left {
+          padding: var(--spacing-8);
+          min-height: 40vh;
+        }
+        .landing-right {
+          padding: var(--spacing-6);
+        }
+      }
+    </style>
+    
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
