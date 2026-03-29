@@ -106,3 +106,4 @@ Error:
 ```json
 { "success": false, "error": "message", "code": 400 }
 ```
+Updated by Riddhi - tested backend integration
